@@ -1,72 +1,94 @@
 <!-- 1. create HTML5 doctype -->
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">  
-  
-  <!-- 2. include meta tag to ensure proper rendering and touch zooming -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- 
-  Bootstrap is designed to be responsive to mobile.
-  Mobile-first styles are part of the core framework.
-   
-  width=device-width sets the width of the page to follow the screen-width
-  initial-scale=1 sets the initial zoom level when the page is first loaded   
-  -->
-  
-  <meta name="author" content="your name">
-  <meta name="description" content="include some description about your page">  
+    <head>
+    <meta charset="UTF-8">  
     
-  <title>Login</title>
-  
-  <!-- 3. link bootstrap -->
+    <!-- 2. include meta tag to ensure proper rendering and touch zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 
+    Bootstrap is designed to be responsive to mobile.
+    Mobile-first styles are part of the core framework.
+    
+    width=device-width sets the width of the page to follow the screen-width
+    initial-scale=1 sets the initial zoom level when the page is first loaded   
+    -->
+    
+    <meta name="author" content="your name">
+    <meta name="description" content="include some description about your page">  
+        
+    <title>Create an Account</title>
+    
+    <!-- 3. link bootstrap -->
 
-  <!-- if you choose to use CDN for CSS bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  
-  
-  <!-- 
-  Use a link tag to link an external resource.
-  A rel (relationship) specifies relationship between the current document and the linked resource. 
-  -->
-  
-  <!-- if you choose to download bootstrap and host it locally -->
-  <!-- <link rel="stylesheet" href="path-to-your-file/bootstrap.min.css" /> --> 
-  
-  <!-- include your CSS -->
-  <!-- <link rel="stylesheet" href="custom.css"> --> 
-       
-</head>
+    <!-- if you choose to use CDN for CSS bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    
+    
+    <!-- 
+    Use a link tag to link an external resource.
+    A rel (relationship) specifies relationship between the current document and the linked resource. 
+    -->
+    
+    <!-- if you choose to download bootstrap and host it locally -->
+    <!-- <link rel="stylesheet" href="path-to-your-file/bootstrap.min.css" /> --> 
+    
+    <!-- include your CSS -->
+    <!-- <link rel="stylesheet" href="custom.css"> --> 
+        
+    </head>
 
-<body>
-    <div class="container">
-        <div class = "row">
-            <div class = "col-md-12">
-                <h2> Sign Up </h2>
-                <p>Please fill out this form to create an account.</p> 
-                <form>
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="full_name" name="full_name" class="form-control" required />
+    <body>
+        <div class="container">
+            <div class = "row justify-content-md-center">
+                <div class = "col-md-8">
+                    <h2 style = "text-align: center;" class = "m-4"> Create an Account </h2>
+                    <!-- <p>Please fill out this form to create an account.</p> -->
+                    <div class = "card">
+                        <form class = "form m-5" onsubmit="passwordVerify()">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="full_name" name="full_name" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" name="email" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" name="password" id="password" class="form-control" value="" required />
+                                <p id = "password_message"></p>
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" name="confirm_password" id="confirm_password" class="form-control" value="" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="button" name="submit" class="btn btn-primary btn-lg btn-block" onclick="passwordVerify()" value="Create Account">
+                            </div>
+                            <p style="text-align: center;">Already have an account? <a href="login.html">Login</a>.</p>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" name="email" class="form-control" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" name="password" class="form-control" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Confirm Password</label>
-                        <input type="confirm_password" name="confirm_password" class="form-control" required />
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" name="submit" class="btn btn-primary" value="Create Account">
-                    </div>
-                    <p>Already have an account? <a href="login.html">Login</a>.</p>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+
+        <script>
+            function passwordVerify(){
+                var x = document.getElementById('password').value;
+                var y = document.getElementById('confirm_password').value;
+                var text = document.getElementById('password_message');
+                if (x == y && x != "" && y != ""){
+                    document.getElementById('password_message').innerHTML = "Passwords match";
+                    text.textContent = "";
+                }
+                else{
+                    document.getElementById('password_message').innerHTML = "Passwords do not match";
+                    text.textContent = "Passwords do not match";
+                    text.style.color = "red";
+                }
+                
+            }
+        </script>
+    </body>
+</html>
