@@ -57,7 +57,7 @@
                             <div class="form-group">
                                 <label>Password</label>
                                 <input type="password" name="password" id="password" class="form-control" value="" required />
-                                <p id = "password_message"></p>
+                                <p id = "password_message" class = "feedback"></p>
                             </div>
                             <div class="form-group">
                                 <label>Confirm Password</label>
@@ -79,11 +79,11 @@
                 var y = document.getElementById('confirm_password').value;
                 var text = document.getElementById('password_message');
                 if (x == y && x != "" && y != ""){
-                    document.getElementById('password_message').innerHTML = "Passwords match";
+                    //document.getElementById('password_message').innerHTML = "Passwords match";
                     text.textContent = "";
                 }
                 else{
-                    document.getElementById('password_message').innerHTML = "Passwords do not match";
+                    //document.getElementById('password_message').innerHTML = "Passwords do not match";
                     text.textContent = "Passwords do not match";
                     text.style.color = "red";
                 }
