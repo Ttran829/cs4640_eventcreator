@@ -79,11 +79,11 @@
                 var y = document.getElementById('confirm_password').value;
                 var text = document.getElementById('password_message');
                 if (x == y && x != "" && y != ""){
-                    document.getElementById('password_message').innerHTML = "Passwords match";
+                    //document.getElementById('password_message').innerHTML = "Passwords match";
                     text.textContent = "";
                 }
                 else{
-                    document.getElementById('password_message').innerHTML = "Passwords do not match";
+                    //document.getElementById('password_message').innerHTML = "Passwords do not match";
                     text.textContent = "Passwords do not match";
                     text.style.color = "red";
                 }
