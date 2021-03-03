@@ -1,0 +1,30 @@
+#form_email, #form_password, #form_name, #form_confirm{
+    position: relative;
+}
+
+#form_password.valid:before, #form_email.valid:before, #form_name.valid:before, #form_confirm.valid:before{
+    content: '';
+    position: absolute;
+    right: 12px;
+    top: 39px;
+    width: 24px;
+    height: 24px;
+    background: url(valid.png);
+    background-size: cover;
+    z-index: 1000;
+}
+
+#form_password.invalid:before, #form_email.invalid:before, #form_name.invalid:before, #form_confirm.invalid:before{
+    content: '';
+    position: absolute;
+    right: 12px;
+    top: 39px;
+    width: 24px;
+    height: 24px;
+    background: url(invalid.png);
+    background-size: cover;
+    z-index: 1000;
+}
+
+
+
