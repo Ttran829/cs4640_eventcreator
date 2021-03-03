@@ -34,7 +34,7 @@
     <!-- <link rel="stylesheet" href="path-to-your-file/bootstrap.min.css" /> --> 
     
     <!-- include your CSS -->
-    <!-- <link rel="stylesheet" href="custom.css"> --> 
+    <link rel="stylesheet" href="CSS/styles.css">
         
     </head>
 
@@ -45,23 +45,32 @@
                     <h2 style = "text-align: center;" class = "m-4"> Create an Account </h2>
                     <!-- <p>Please fill out this form to create an account.</p> -->
                     <div class = "card">
-                        <form class = "form m-5" onsubmit="passwordVerify()">
-                            <div class="form-group">
+                        <form id = "form" class = "form m-5" onsubmit="passwordVerify()">
+                            <div id="form_name" class="form-group">
                                 <label>Full Name</label>
-                                <input type="full_name" name="full_name" class="form-control" required />
+                                <input type="full_name" name="full_name" id="full_name" class="form-control" onkeyup="usernameVerify()" required />
+                                <p id="user_msg" class="feedback"></p>
                             </div>
-                            <div class="form-group">
+                            <div id="form_email" class="form-group">
                                 <label>Email Address</label>
-                                <input type="email" name="email" class="form-control" required />
+                                <input type="text" name="email" id="email" class="form-control" onkeyup = "emailVerify()" required />
+                                <p id = "email_message" class = "feedback"></p>
                             </div>
-                            <div class="form-group">
+                            <div id="form_password"  class="form-group">
                                 <label>Password</label>
-                                <input type="password" name="password" id="password" class="form-control" value="" required />
-                                <p id = "password_message" class = "feedback"></p>
+                                <input type="password" name="password" id="password" class="form-control" onkeyup="passwordVerify()" value="" required />
+                                <p>Password must contain the following:</p>
+                                <ul>
+                                    <li id='length'>Minimum 6 characters</li>
+                                    <li id='number'>A number</li>
+                                    <li id='upper'>An uppercase letter</li>
+                                    <li id='lower'>A lowercase letter</li>
+                                </ul>
                             </div>
-                            <div class="form-group">
+                            <div id="form_confirm" class="form-group">
                                 <label>Confirm Password</label>
-                                <input type="password" name="confirm_password" id="confirm_password" class="form-control" value="" required />
+                                <input type="password" name="confirm_password" id="confirm_password" class="form-control" onkeyup="confirmPasswordVerify()" value="" required />
+                                <p id=confirm_msg class="feedback"></p>
                             </div>
                             <div class="form-group">
                                 <input type="button" name="submit" class="btn btn-primary btn-lg btn-block" onclick="passwordVerify()" value="Create Account">
@@ -74,20 +83,163 @@
         </div>
 
         <script>
+            function usernameVerify(){
+                var form_name = document.getElementById('form_name');
+                var full_name = document.getElementById('full_name').value;
+                var user_msg = document.getElementById('user_msg');
+
+                if(full_name != ""){
+                    form_name.classList.add('valid');
+                    form_name.classList.remove('invalid');
+                    user_msg.textContent = ""
+                }
+                else{
+                    form_name.classList.remove('valid');
+                    form_name.classList.add('invalid');
+                    user_msg.textContent = "Please enter a name"
+                    user_msg.style.color ="#ff0000" 
+                }
+            }
+            
             function passwordVerify(){
+                var form_password = document.getElementById('form_password');
+                var upper = document.getElementById('upper');
+                var lower = document.getElementById('lower');
+                var number = document.getElementById('number');
+                var length = document.getElementById('length');
+                var password = document.getElementById('password').value;
+                //var text = document.getElementById('password_message');
+
+                //Validate uppercase letter
+                var upperCase = /[A-Z]/g;
+                if(password.match(upperCase)){
+                    upper.classList.add('valid');
+                    upper.classList.remove('invalid');
+                    upper.style.color = "green";
+                }
+                else{
+                    upper.classList.remove('valid');
+                    upper.classList.add('invalid');
+                    //text.textContent = "Please Enter Valid UpperCase";
+                    upper.style.color = "#ff0000";
+                }
+
+                //Validate lowercase letter
+                var lowerCase = /[a-z]/g;
+                if(password.match(lowerCase)){
+                    lower.classList.add('valid');
+                    lower.classList.remove('invalid');
+                    lower.style.color = "green";
+                }
+                else{
+                    lower.classList.remove('valid');
+                    lower.classList.add('invalid');
+                    //text.textContent = "Please Enter Valid LowerCase";
+                    lower.style.color = "#ff0000";
+                }
+
+                //Validate number
+                var numVal = /[0-9]/g;
+                if(password.match(numVal)){
+                    number.classList.add('valid');
+                    number.classList.remove('invalid');
+                    number.style.color = "green";
+                }
+                else{
+                    number.classList.remove('valid');
+                    number.classList.add('invalid');
+                    //text.textContent = "Please Enter Valid Number";
+                    number.style.color = "#ff0000";
+                }
+
+                //Validate length
+                if(password.length >= 6){
+                    length.classList.add('valid');
+                    length.classList.remove('invalid');
+                    length.style.color = "green";
+                }
+                else{
+                    length.classList.remove('valid');
+                    length.classList.add('invalid');
+                    //text.textContent = "Please Enter Valid Length";
+                    length.style.color = "#ff0000";
+                }
+
+                if(length.classList == 'valid' && number.classList == 'valid' && lower.classList == 'valid' && upper.classList == 'valid'){
+                    form_password.classList.add('valid');
+                    form_password.classList.remove('invalid');
+                }
+                else{
+                    form_password.classList.remove('valid');
+                    form_password.classList.add('invalid');
+                }
+
+                if (password == ""){
+                    upper.classList.remove("valid");
+                    upper.classList.remove("invalid");
+                    lower.classList.remove("valid");
+                    lower.classList.remove("invalid");
+                    number.classList.remove("valid");
+                    number.classList.remove("invalid");
+                    length.classList.remove("valid");
+                    length.classList.remove("invalid");
+                    form_password.classList.remove("valid");
+                    form_password.classList.remove("invalid");
+                    upper.style.color = "black";
+                    lower.style.color = "black";
+                    number.style.color = "black";
+                    length.style.color = "black";
+                    
+                }
+            }
+
+            function confirmPasswordVerify(){
+                var form_confirm = document.getElementById('form_confirm');
                 var x = document.getElementById('password').value;
                 var y = document.getElementById('confirm_password').value;
-                var text = document.getElementById('password_message');
-                if (x == y && x != "" && y != ""){
+                var text = document.getElementById('confirm_msg');
+                if (x == y){
                     //document.getElementById('password_message').innerHTML = "Passwords match";
+                    form_confirm.classList.add('valid');
+                    form_confirm.classList.remove('invalid');
                     text.textContent = "";
+
                 }
                 else{
                     //document.getElementById('password_message').innerHTML = "Passwords do not match";
+                    form_confirm.classList.remove('valid');
+                    form_confirm.classList.add('invalid')
                     text.textContent = "Passwords do not match";
                     text.style.color = "red";
                 }
-                
+
+            }
+
+            function emailVerify(){
+                var form = document.getElementById('form_email');
+                var email = document.getElementById('email').value;
+                var text = document.getElementById('email_message');
+                var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+                if (email.match(pattern)){
+                    form.classList.add("valid");
+                    form.classList.remove("invalid");
+                    text.textContent = "";
+                    //text.style.color = "#00ff00";
+                }
+                else{
+                    form.classList.remove("valid");
+                    form.classList.add("invalid");
+                    text.textContent = "Please Enter Valid Email Address";
+                    text.style.color = "#ff0000";
+                }
+
+                if (email == ""){
+                    form.classList.remove("valid");
+                    form.classList.remove("invalid");
+                    text.textContent = "";
+                    text.style.color = "#00ff00";
+                }
             }
         </script>
     </body>
