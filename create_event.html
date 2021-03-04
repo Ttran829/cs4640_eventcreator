@@ -24,35 +24,40 @@
     <div class="container">
          <h3 style= "text-align:center;" class = "m-4"> Create an Event</h3>
          <div class = "row justify-content-md-center">
-             <div class = "col-8">
+             <div class = "col">
                 <div class ="card">
                     <div class = "form m-5">
-                        <div class="mb-3">
+                          <div id = "name" class="form-group mb-3">
                             <label for="formGroupExampleInput" class="form-label">Event Name</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+                            <input type="eventname" class="form-control" name ="eventname" id="eventname" placeholder="input event name" onkeyup="verifyEventName()" required>
+                            <p id="name_msg" class="feedback"></p>
                           </div>
-                          <div class="mb-3">
+                          <div id = "number" class=" form-group mb-3">
                             <label for="formGroupExampleInput2" class="form-label"> Number of Players</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                            <input type="playernumber" name = "playernumber" class="form-control" id="playernumber" placeholder="input number of players" onkeyup="verifyPlayerNumber()" required>
+                            <p id="number_msg" class="feedback"></p>
                           </div>
                           <div class="mb-3">
                             <label for="formGroupExampleInput2" class="form-label"> Game Date</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                            <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
                           </div>
                           <div class = "row">
-                              <div class = "col-4">
+                              <div class = "col">
                                 <label for="formGroupExampleInput2" class="form-label"> Start Time</label>
-                                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                                <input type="time" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
                               </div>
-                              <div class = "col-4">
+                              <div class = "col">
                                 <label for="formGroupExampleInput2" class="form-label"> End Time </label>
-                                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                                <input type="time" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
                               </div>
                           </div>   
-                          <div class ="float-right"> 
-                            <button type="button" class="btn btn-secondary m-1 ">Cancel</button>
-                            <button type="button" class="btn btn-primary m-1 ">Create Event</button>
-                   
+                          <div class ="float-right mt-5"> 
+                            <a href = "event_dashboard.html">
+                              <button type="button" class="btn btn-secondary m-1 ">Cancel</button>
+                            </a>
+                            <a href = "game_select.html">
+                            <button type="button" class="btn btn-primary m-1 " id="btn-submit" onclick="checkForm()" >Create Event</button>
+                            </a>
                         </div>
                     </div>
                     
@@ -66,4 +71,53 @@
         
 
     </div>
+
+    <script>
+  
+
+
+
+
+
+
+
+      function verifyEventName(){
+        var event_name = document.getElementById('eventname').value;
+        var form_name = document.getElementById('name');
+        var name_msg = document.getElementById('name_msg');
+
+                if(event_name != ""){
+                    form_name.classList.add('valid');
+                    form_name.classList.remove('invalid');
+                    name_msg.textContent = ""
+                }
+                else{
+                    form_name.classList.remove('valid');
+                    form_name.classList.add('invalid');
+                    name_msg.textContent = "Please enter a name"
+                    name_msg.style.color ="#ff0000" 
+                }
+
+      }
+
+      function verifyPlayerNumber(){
+        var player_number = document.getElementById('playernumber').value;
+        var form_number = document.getElementById('number');
+        var number_msg = document.getElementById('number_msg');
+        var numVal = /[0-9]/g;
+        if(player_number != "" && player_number.match(numVal) ){
+                    form_number.classList.add('valid');
+                    form_number.classList.remove('invalid');
+                    number_msg.textContent = ""
+                }
+        else{
+            form_number.classList.remove('valid');
+            form_number.classList.add('invalid');
+            number_msg.textContent = "Please enter a valid number"
+            number_msg.style.color ="#ff0000" 
+        }
+      }
+
+
+    </script>
   </body>
