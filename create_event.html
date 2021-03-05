@@ -20,7 +20,7 @@
 
   </head>
 
-  <body>
+  <body onload  = "setFocus()">
     <div class="container">
          <h3 style= "text-align:center;" class = "m-4"> Create an Event</h3>
          <div class = "row justify-content-md-center">
@@ -75,7 +75,10 @@
     <script>
   
 
+      function setFocus(){
+        document.getElementById('eventname').focus();
 
+      }
 
 
 
