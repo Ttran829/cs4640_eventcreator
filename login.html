@@ -34,20 +34,20 @@
     <!-- <link rel="stylesheet" href="path-to-your-file/bootstrap.min.css" /> --> 
     
     <!-- include your CSS -->
-    <!-- <link rel="stylesheet" href="custom.css"> --> 
+    <link rel="stylesheet" href="CSS/styles.css">
         
     </head>
 
-    <body>
+    <body onload="setFocus()">
         <div class="container">
             <div class = "row justify-content-md-center">
                 <div class = "col-md-8">
-                    <h2 style="text-align:center;" class = "m-4"> Login </h2>
+                    <h2 style="text-align:center;" class = "m-4"> GameConnect </h2>
                     <div class="card">
                         <form class = "form m-5">
                             <div class="form-group">
                                 <label>Email Address</label>
-                                <input type="email" name="email" class="form-control" required />
+                                <input type="email" name="email" id="email" class="form-control" required />
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
@@ -63,4 +63,10 @@
             </div>
         </div>
     </body>
+
+    <script>
+        function setFocus(){
+            document.getElementById('email').focus();
+        }
+    </script>
 </html>
