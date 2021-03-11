@@ -26,5 +26,13 @@
     z-index: 1000;
 }
 
+.btn.btn-primary.btn-lg.btn-block{
+    background-color: #F63E02;
+    border-color: #F63E02;
+}
+
+a{
+    color: #F63E02;
+}
 
 
