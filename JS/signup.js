@@ -84,18 +84,6 @@ function passwordVerify(){
         length.style.color = "#ff0000";
     }
 
-    if(length.classList == 'valid' && number.classList == 'valid' && lower.classList == 'valid' && upper.classList == 'valid'){
-        form_password.classList.add('valid');
-        form_password.classList.remove('invalid');
-        text.textContent = "";
-        return true;
-    }
-    else{
-        form_password.classList.remove('valid');
-        form_password.classList.add('invalid');
-        return false;
-    }
-
     if (password == ""){
         upper.classList.remove("valid");
         upper.classList.remove("invalid");
@@ -113,6 +101,20 @@ function passwordVerify(){
         length.style.color = "black";
         
     }
+
+    if(length.classList == 'valid' && number.classList == 'valid' && lower.classList == 'valid' && upper.classList == 'valid'){
+        form_password.classList.add('valid');
+        form_password.classList.remove('invalid');
+        text.textContent = "";
+        return true;
+    }
+    else{
+        form_password.classList.remove('valid');
+        form_password.classList.add('invalid');
+        return false;
+    }
+
+
 }
 
 function confirmPasswordVerify(){
@@ -145,6 +147,13 @@ function emailVerify(){
     var text = document.getElementById('email_message');
     var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
+    if (email == ""){
+        form.classList.remove("valid");
+        form.classList.remove("invalid");
+        text.textContent = "";
+        text.style.color = "#00ff00";
+    }
+    
     if (email.match(pattern)){
         form.classList.add("valid");
         form.classList.remove("invalid");
@@ -155,17 +164,10 @@ function emailVerify(){
     else{
         form.classList.remove("valid");
         form.classList.add("invalid");
-        text.textContent = "Please Enter Valid Email Address";
+        text.textContent = "Please enter a valid email address";
         text.style.color = "#ff0000";
         return false;
         
-    }
-
-    if (email == ""){
-        form.classList.remove("valid");
-        form.classList.remove("invalid");
-        text.textContent = "";
-        text.style.color = "#00ff00";
     }
 }
 
