@@ -27,12 +27,21 @@
 }
 
 .btn.btn-primary.btn-lg.btn-block{
-    background-color: #F63E02;
-    border-color: #F63E02;
+    background-color: #f35d02;
+    border-color: #f35d02;
 }
 
 a{
-    color: #F63E02;
+    color: #f35d02;
 }
+
+.center {
+    margin: auto;
+    width: 65%;
+    border: 3px solid #154f48;
+    padding: 5px;
+  }
+
+
 
 
