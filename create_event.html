@@ -16,6 +16,7 @@
   <!-- 3. link bootstrap -->
 
   <!-- if you choose to use CDN for CSS bootstrap -->
+  <link rel="stylesheet" href="CSS/styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
   </head>
@@ -27,10 +28,11 @@
             <img src = "GameLogo.png" style="width: 24em; height:auto;">
         </center>
        </div>
-         <h3 style= "text-align:center;" class = "m-4"> Create an Event</h3>
+         
          <div class = "row justify-content-md-center">
              <div class = "col">
-                <div class ="card">
+                <div class ="card center mt-2">
+                  <h3 style= "text-align:center;" class = "m-3"> Create an Event</h3>
                     <div class = "form m-5">
                           <div id = "name" class="form-group mb-3">
                             <label for="formGroupExampleInput" class="form-label">Event Name</label>
@@ -57,12 +59,12 @@
                               </div>
                           </div>   
                           <div class ="float-right mt-5"> 
-                            <a href = "event_dashboard.html">
-                              <button type="button" class="btn btn-secondary m-1 ">Cancel</button>
-                            </a>
+                            <div class = "row">
+                           <!--- <a href = "event_dashboard.html"> Cancel </a> --->
                             <a href = "game_select.html">
-                            <button type="button" class="btn btn-primary m-1 " id="btn-submit" onclick="checkForm()" >Create Event</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block" id="btn-submit" onclick="checkForm()" >Create Event</button>
                             </a>
+                          </div>
                         </div>
                     </div>
                     

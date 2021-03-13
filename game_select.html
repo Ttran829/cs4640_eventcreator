@@ -27,7 +27,7 @@
           <div>
               <h3 style="text-align:center;" class = "m-4" > Select a Game!</h3>
           </div>
-          <div>
+         <!--- <div>
               <h5 style="text-align:center;" class = "m-3"> Search for a game </h5>
           </div>
 
@@ -42,23 +42,44 @@
               </div>                   
           </div>
         </div>
-
+--->
+    
         
 
     <div class="container">
+
+      <div class = "col-md">
+        <h4 id = "game-identify">You choose: </h2>
+          <div class = "row">
+            <div class = "col"> 
+              <input type="text" name="username" id="username" class="form-control" value="Game Name">
+            </div>
+            <script>
+              var borderFunction = function(){
+                var property = document.getElementById('username');
+                property.style.borderColor = "#f35d02";
+                property.style.color = "#ffffff";
+              }
+              borderFunction();
+            </script>
+        
+        <button class="btn btn-secondary" id = "main-button">Next</button>
+      </div>
+      </div>
         <div class =  "row justify-content-md-center">
             <div class = "col m-3">
               <div class = "game-card" style="width:300px;height:300px;">
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
-                    <img class = "game-img" src="https://codenames.game/img/ogimage.png" alt="Avatar" style="width:300px;height:300px;">
+                    <img class = "game-img" src="https://codenames.game/img/ogimage.png" id = "cn-img" alt="Avatar" style="width:300px;height:300px;">
                   </div>
                   <div class="flip-card-back">
                     <h3>CodeNames</h1>
                     <p>Team building game that depends on good communication</p>
                     <p>Players: 6-8</p>
-                    <button type="button" class="btn btn-primary">Play</button>
+                    <button type="button"  class="btn btn-primary" onclick="changeContentById('Code Names'),changeButtonColor()">Choose</button>
+                  
                   </div>
                 </div>
               </div>
@@ -75,7 +96,7 @@
                       <h3>Tetris</h1>
                         <p>Compete with your firends to see who stacks blocks the best</p>
                         <p>Players: 2-4</p>
-                      <button type="button" class="btn btn-primary">Play</button>
+                      <button type="button" class="btn btn-primary" onclick="changeContentById('Tetris'),changeButtonColor()">Choose</button>
                     </div>
                   </div>
                 </div>
@@ -92,7 +113,7 @@
                     <h3>Scribl.io</h1>
                       <p>See if you can try to guess your friend's craxy illustrations</p>
                       <p>Players: 2-8</p>
-                    <button type="button" class="btn btn-primary">Play</button>
+                    <button type="button" class="btn btn-primary" onclick="changeContentById('Scribl.io'),changeButtonColor()">Choose</button>
                   </div>
                 </div>
               </div>
@@ -114,7 +135,7 @@
                     <h3>Overcooked</h1>
                       <p>A game the requires teamwork and great communication</p>
                       <p>Players: 3-4</p>
-                    <button type="button" class="btn btn-primary">Play</button>
+                    <button type="button" class="btn btn-primary" onclick="changeContentById('Overcooked'),changeButtonColor()">Choose</button>
                   </div>
                 </div>
               </div>
@@ -131,7 +152,7 @@
                     <h3>Cards Against Humanity</h1>
                       <p>See whoc an come up with the funniest combination of words</p>
                       <p>Players: 6-8</p>
-                    <button type="button" class="btn btn-primary">Play</button>
+                    <button type="button" class="btn btn-primary" onclick="changeContentById('Cards Against Humanity'),changeButtonColor()">Choose</button>
                   </div>
                 </div>
               </div>
@@ -148,7 +169,7 @@
                     <h3>Exploding Kittens</h1>
                       <p>A game of luck and strategy, try not to explode the bomb</p>
                       <p>Players: 4-6</p>
-                    <button type="button" class="btn btn-primary">Play</button>
+                    <button type="button" class="btn btn-primary" onclick="changeContentById('Exploding Kittens'),changeButtonColor()">Choose</button>
                   </div>
                 </div>
               </div>
@@ -162,7 +183,19 @@
 
 
     <script>
+  function changeContentById(name)
+{
+  document.getElementById('username').value = name;
+  var property = document.getElementById('username');
+  property.style.color = "#000000";
   
+}
+
+function changeButtonColor(){
+  var property = document.getElementById('main-button');
+  property.style.backgroundColor = "#f35d02";
+  property.style.borderColor = "#f35d02";
+}
 
      
     </script>
