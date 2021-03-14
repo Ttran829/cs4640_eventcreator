@@ -31,9 +31,16 @@
     border-color: #f35d02;
 }
 
+.btn.btn-primary.btn-lg.btn-block:hover{
+    background-color: #ffffff;
+    border-color: #f35d02;
+    color: #f35d02;
+}
+
 a{
     color: #f35d02;
 }
+
 
 .center {
     margin: auto;
