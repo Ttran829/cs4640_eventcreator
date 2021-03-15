@@ -2,6 +2,7 @@
     position: relative;
 }
 
+/* CSS to show valid states for form */
 #form_password.valid:before, #form_email.valid:before, #form_name.valid:before, #form_confirm.valid:before{
     content: '';
     position: absolute;
@@ -14,6 +15,7 @@
     z-index: 1000;
 }
 
+/* CSS to show invalid states for form */
 #form_password.invalid:before, #form_email.invalid:before, #form_name.invalid:before, #form_confirm.invalid:before{
     content: '';
     position: absolute;
@@ -26,11 +28,13 @@
     z-index: 1000;
 }
 
+/* button colors */
 .btn.btn-primary.btn-lg.btn-block{
     background-color: #f35d02;
     border-color: #f35d02;
 }
 
+/* button colors when hovering */
 .btn.btn-primary.btn-lg.btn-block:hover{
     background-color: #ffffff;
     border-color: #f35d02;
@@ -41,6 +45,7 @@ a{
     color: #f35d02;
 }
 
+/* centering objects in the middle of the screen */
 .center {
     margin: auto;
     width: 65%;
