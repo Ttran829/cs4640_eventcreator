@@ -1,6 +1,6 @@
 let setFocus = () => document.getElementById('full_name').focus();
 
-function usernameVerify(){
+function usernameVerify(){ //has logic that verifies the username
     var form_name = document.getElementById('form_name');
     var full_name = document.getElementById('full_name').value;
     var user_msg = document.getElementById('user_msg');
@@ -20,7 +20,7 @@ function usernameVerify(){
     }
 }
 
-function passwordVerify(){
+function passwordVerify(){ // has logic to verify that a valid password has been inputted
     var form_password = document.getElementById('form_password');
     var upper = document.getElementById('upper');
     var lower = document.getElementById('lower');
@@ -117,7 +117,7 @@ function passwordVerify(){
 
 }
 
-function confirmPasswordVerify(){
+function confirmPasswordVerify(){ // has logic to confirm that the passwords entered match
     var form_confirm = document.getElementById('form_confirm');
     var x = document.getElementById('password').value;
     var y = document.getElementById('confirm_password').value;
@@ -141,7 +141,7 @@ function confirmPasswordVerify(){
 
 }
 
-function emailVerify(){
+function emailVerify(){ // has logic that checks to see if a valid email has been entered
     var form = document.getElementById('form_email');
     var email = document.getElementById('email').value;
     var text = document.getElementById('email_message');
@@ -171,7 +171,7 @@ function emailVerify(){
     }
 }
 
-function formVerify(){
+function formVerify(){ // validate that everything on the form is correct before moving on to the next step
     var user_msg = document.getElementById('user_msg');
     var pass_msg = document.getElementById('pass_msg');
     var conpass_msg = document.getElementById('confirm_msg');
