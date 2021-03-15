@@ -84,69 +84,6 @@
          </div>
        
         
-<body onload="setFocus()">
-  <div class="container">
-    <div class="pt-5">
-      <center>
-        <img src="CSS/GameLogo.png" style="width: 24em; height:auto;">
-      </center>
-    </div>
-
-    <div class="row justify-content-md-center">
-      <div class="col">
-        <div class="card center mt-2">
-          <h3 style="text-align:center;" class="m-3"> Create an Event</h3>
-          <div class="form m-5">
-            <div id="name" class="form-group mb-3">
-              <label for="formGroupExampleInput" class="form-label">Event Name</label>
-              <input type="eventname" class="form-control" name="eventname" id="eventname"
-                placeholder="input event name" onkeyup="verifyEventName()" required>
-              <p id="name_msg" class="feedback"></p>
-            </div>
-            <div id="number" class=" form-group mb-3">
-              <label for="formGroupExampleInput2" class="form-label"> Number of Players</label>
-              <input type="playernumber" name="playernumber" class="form-control" id="playernumber"
-                placeholder="input number of players" onkeyup="verifyPlayerNumber()" required>
-              <p id="number_msg" class="feedback"></p>
-            </div>
-            <div class="mb-3">
-              <label for="formGroupExampleInput2" class="form-label"> Game Date</label>
-              <input type="date" class="form-control" id="formGroupExampleInput2"
-                placeholder="Another input placeholder">
-            </div>
-            <div class="row">
-              <div class="col">
-                <label for="formGroupExampleInput2" class="form-label"> Start Time</label>
-                <input type="time" class="form-control" id="formGroupExampleInput2"
-                  placeholder="Another input placeholder">
-              </div>
-              <div class="col">
-                <label for="formGroupExampleInput2" class="form-label"> End Time </label>
-                <input type="time" class="form-control" id="formGroupExampleInput2"
-                  placeholder="Another input placeholder">
-              </div>
-            </div>
-            <div class="float-right mt-5">
-              <div class="row">
-                <!--- <a href = "event_dashboard.html"> Cancel </a> --->
-                <a href="game_select.html">
-                  <button type="button" class="btn btn-primary btn-lg btn-block" id="btn-submit"
-                    onclick="checkForm()">Create Event</button>
-                </a>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-  </div>
 
   <script>
 
