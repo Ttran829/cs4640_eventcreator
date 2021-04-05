@@ -23,6 +23,7 @@
 </head>
 
 <body>
+<?php session_start(); ?>
 
   <div class="container">
     <div>
@@ -45,20 +46,34 @@
         </div>
 --->
 
-
+Previous question: you answered <font color="green" style="font-style:italic"><?php echo $_SESSION['event-name'] ?></font>
 
     <div class="container">
 
       <div class="col-md">
-        <h4 id="game-identify">You choose: </h2>
-          <div class="row">
-            <div class="col">
-              <input type="text" name="username" id="username" class="form-control" value="Game Name">
-            </div>
+        
+
+
+
+    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">      
+      <input type="text" id= "game" name="lunch" class="form-control" autofocus required /> <br />
+      <input type="submit" value="Submit" class="btn btn-light"  />   
+    </form>
+    <?php
+if (isset($_POST['lunch']))
+{
+  $_SESSION['lunch'] = $_POST['lunch'];
+  header('Location: confirmation.php');
+}
+?>
+
+
+
+
             <script>
               // anonymous function to change the boarder of the text box u=immediately when code is loaded
               var borderFunction = function () {
-                var property = document.getElementById('username');
+                var property = document.getElementById('game');
                 property.style.borderColor = "#f35d02";
                 property.style.color = "#ffffff";
               }
@@ -199,13 +214,13 @@
 
 
     </div>
-
+  
     
     <script>
       // DOM manipulation to change words within the text field
       function changeContentById(name) {
-        document.getElementById('username').value = name;
-        var property = document.getElementById('username');
+        document.getElementById('game').value = name;
+        var property = document.getElementById('game');
         property.style.color = "#000000";
 
       }

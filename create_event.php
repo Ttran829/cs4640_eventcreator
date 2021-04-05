@@ -30,6 +30,8 @@
   </head>
 
   <body onload  = "setFocus()">
+
+  <?php session_start(); ?>
     <div class="container">
       <div class = "pt-5">
         <center>
@@ -40,8 +42,9 @@
          <div class = "row justify-content-md-center">
              <div class = "col">
                 <div class ="card center mt-2">
-                  <h3 style= "text-align:center;" class = "m-3"> Create an Event</h3>
+                  <h3 style= "text-align:center;" class = "m-3"> Welcome <?php if (isset($_SESSION['user'])) echo $_SESSION['user'] ?>, let's create an event!</h3>
                     <div class = "form m-5">
+                    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">   
                           <div id = "name" class="form-group mb-3">
                             <label for="formGroupExampleInput" class="form-label">Event Name</label>
                             <input type="eventname" class="form-control" name ="eventname" id="eventname" placeholder="input event name" onkeyup="verifyEventName()" required>
@@ -54,18 +57,31 @@
                           </div>
                           <div class="mb-3">
                             <label for="formGroupExampleInput2" class="form-label"> Game Date</label>
-                            <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                            <input type="date" class="form-control" id="gamedate" name = "gamedate" placeholder="Another input placeholder">
                           </div>
                           <div class = "row">
                               <div class = "col">
                                 <label for="formGroupExampleInput2" class="form-label"> Start Time</label>
-                                <input type="time" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                                <input type="time" class="form-control" id="starttime" name="starttime"placeholder="Another input placeholder">
                               </div>
                               <div class = "col">
                                 <label for="formGroupExampleInput2" class="form-label"> End Time </label>
-                                <input type="time" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                                <input type="time" class="form-control" id="endtime" name="endtime"placeholder="Another input placeholder">
                               </div>
-                          </div>   
+                          </div>
+                          <input type="submit" value="Submit" class="btn btn-light"  />      
+                          <form>
+                          <?php
+if (isset($_POST['eventname']))
+{
+  $_SESSION['eventname'] = $_POST['eventname'];
+  $_SESSION['playernumber'] = $_POST['playernumber'];
+  $_SESSION['gamedate'] = $_POST['gamedate'];
+  $_SESSION['starttime'] = $_POST['starttime'];
+  $_SESSION['endtime'] = $_POST['endtime'];
+  header('Location: game_select.php');
+}
+?>
                           <div class ="float-right mt-5"> 
                             <div class = "row">
                            <!--- <a href = "event_dashboard.html"> Cancel </a> --->
@@ -76,7 +92,7 @@
                         </div>
                     </div>
                     
-                    
+
                 </div>
                 
              </div>
