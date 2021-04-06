@@ -7,8 +7,8 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-  <meta name="author" content="your name">
+  <!-- Author: Kimberly Vo, Tien Tran -->
+  <meta name="Kimberly Vo, Tien Tran" content="your name">
   <meta name="description" content="include some description about your page">
 
   <title>Dashboard</title>
@@ -22,12 +22,14 @@
 </head>
 
 <body>
+<?php session_start(); ?>
   <nav class="navbar sticky-top navbar-light bg-light">
     <div class="container-fluid">
       <img src="CSS/GameLogo.png" style="width: 12em; height:auto;">
       <a class="navbar-brand" href="#">Navigation</a>
     </div>
   </nav>
+  <h3 style= "text-align:center;" class = "m-3"> Welcome <?php if (isset($_SESSION['user'])) echo $_SESSION['user'] ?>, let's create an event!</h3>
   <div class="container">
     <div class="justify-content-center">
       <h3 class="mt-3 mb-3" style="text-align:center;">Game Center Dashboard</h3>
@@ -52,7 +54,7 @@
             <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
             <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
           </div>
-          <a href="create_event.html">
+          <a href="create_event.php">
             <div class="float-right mt-5">
               <button type="button" class="btn btn-primary m-1 " id="btn-submit">Create New Event</button>
             </div>
