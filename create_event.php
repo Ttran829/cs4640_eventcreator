@@ -1,3 +1,10 @@
+<?php session_start();
+
+if (!isset($_SESSION['session_user_id'])) {
+  echo "<script>location.href = 'login.php';</script>";
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -31,7 +38,6 @@
 
   <body onload  = "setFocus()">
 
-  <?php session_start(); ?>
     <div class="container">
       <div class = "pt-5">
         <center>
@@ -85,7 +91,7 @@ if (isset($_POST['eventname']))
                           <div class ="float-right mt-5"> 
                             <div class = "row">
                            <!--- <a href = "event_dashboard.html"> Cancel </a> --->
-                            <a href = "game_select.html">
+                            <a href = "game_select.php">
                             <button type="button" class="btn btn-primary btn-lg btn-block" id="btn-submit" onclick="checkForm()" >Create Event</button>
                             </a>
                           </div>

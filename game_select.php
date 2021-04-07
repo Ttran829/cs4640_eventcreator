@@ -1,3 +1,10 @@
+<?php session_start();
+
+if (!isset($_SESSION['session_user_id'])) {
+  echo "<script>location.href = 'login.php';</script>";
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -23,7 +30,7 @@
 </head>
 
 <body>
-<?php session_start(); ?>
+
 
   <div class="container">
     <div>
