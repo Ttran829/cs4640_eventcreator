@@ -1,3 +1,11 @@
+<?php session_start();
+
+if (!isset($_SESSION['session_user_id'])) {
+  echo "<script>location.href = 'login.php';</script>";
+  header("Refresh:0");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -22,7 +30,7 @@
 </head>
 
 <body>
-<?php session_start(); ?>
+
   <nav class="navbar sticky-top navbar-light bg-light">
     <div class="container-fluid">
       <img src="CSS/GameLogo.png" style="width: 12em; height:auto;">

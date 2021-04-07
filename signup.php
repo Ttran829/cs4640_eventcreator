@@ -1,3 +1,7 @@
+<?php
+    require('gameconnect-connectdb.php');
+?>
+
 <!-- 1. create HTML5 doctype -->
 <!DOCTYPE html>
 <html>
@@ -48,7 +52,7 @@
                     <!-- <p>Please fill out this form to create an account.</p> -->
                     <div class = "card center">
                         <h4 style = "text-align: center;" class = "m-3"> Create an Account </h4>
-                        <form id = "form" class = "form m-5" onsubmit="passwordVerify()">
+                        <form id = "form" action = "signup_add.php" method = "POST" class = "form m-5" onsubmit="return formVerify()">
                             <div id="form_name" class="form-group">
                                 <label>Full Name</label>
                                 <input type="full_name" name="full_name" id="full_name" class="form-control" onkeyup="usernameVerify()" required />
@@ -77,9 +81,9 @@
                                 <p id=confirm_msg class="feedback"></p>
                             </div>
                             <div class="form-group">
-                                <input type="button" name="submit" id="submit_btn" class="btn btn-primary btn-lg btn-block" onclick="formVerify()" value="Create Account">
+                                <input type="submit" name="submit" id="submit_btn" class="btn btn-primary btn-lg btn-block" value="Create Account">
                             </div>
-                            <p style="text-align: center;">Already have an account? <a href="login.html">Login</a>.</p>
+                            <p style="text-align: center;">Already have an account? <a href="login.php">Login</a>.</p>
                         </form>
                     </div>
                 </div>

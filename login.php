@@ -51,7 +51,7 @@
                     <!----<h2 style="text-align:center;" class = "m-4"> GameConnect </h2> -->
                     <div class="card center">
                         <h4 style = "text-align: center;" class = "m-3"> Login </h4>
-                        <form class = "form m-5">
+                        <form class = "form m-5" action = "login_verify.php" method = "POST">
                             <div class="form-group">
                                 <label>Email Address</label>
                                 <input type="email" name="email" id="email" class="form-control" required />
@@ -61,9 +61,9 @@
                                 <input type="password" name="password" class="form-control" required />
                             </div>
                             <div class="form-group">
-                                <input type="button" name="submit" id="submit" class="btn btn-primary btn-lg btn-block" value="Sign In">
+                                <input type="submit" name="submit" id="submit" class="btn btn-primary btn-lg btn-block" value="Sign In">
                             </div>
-                            <p style="text-align: center;">Don't have an account? <a href="signup.html">Create an Account</a>.</p>
+                            <p style="text-align: center;">Don't have an account? <a href="signup.php">Create an Account</a>.</p>
                         </form>
                     </div>
                 </div>
@@ -74,9 +74,9 @@
     <script>
         let setFocus = () => document.getElementById('email').focus();
 
-        // Will add more logic once we implement php to verify login
+        /* Will add more logic once we implement php to verify login
         document.getElementById('submit').onclick = function(){
             location.href='event_dashboard.html';
-        }
+        } */
     </script>
 </html>

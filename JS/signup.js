@@ -177,7 +177,7 @@ function formVerify(){ // validate that everything on the form is correct before
     var conpass_msg = document.getElementById('confirm_msg');
     var email_msg = document.getElementById('email_message');
     if (usernameVerify() == true && passwordVerify() == true && confirmPasswordVerify() == true && emailVerify() == true){
-        window.location.href = "login.html";
+        window.location.href = "login.php";
     }
     else{
         if(usernameVerify() == false){
