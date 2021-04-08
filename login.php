@@ -40,6 +40,7 @@
     </head>
 
     <body onload="setFocus()">
+  
         <div class="container">
             <div class = "row justify-content-md-center">                    
                <div class = "col-md-8">
@@ -55,6 +56,7 @@
                             <div class="form-group">
                                 <label>Email Address</label>
                                 <input type="email" name="email" id="email" class="form-control" required />
+                                <input type="hidden" name="attempt" value="<?php if (isset($_GET['attempt'])) echo $_GET['attempt'] ?>" />
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
@@ -62,6 +64,24 @@
                             </div>
                             <div class="form-group">
                                 <input type="submit" name="submit" id="submit" class="btn btn-primary btn-lg btn-block" value="Sign In">
+                                <?php
+  $number_attempt = null;
+  if (isset($_GET['attempt'])){
+    echo "<br/>";
+    echo "<script type='text/javascript'>
+    alert('Error: That is not a valid username and password ')
+    </script>";
+    echo "<p style='color:red;' align = 'center'>" . "Number of failed attempts: "  . $_GET['attempt'] . "<br/>" . "</p>";
+    $number_attempt = intval($_GET['attempt']);
+
+    if($number_attempt >= 3){
+      echo "<p align = 'center'>" ."Too many failed attempts. Please contact the admin <br/>" . "</p>";
+    }
+  }
+  else{
+    $number_attempt = 0;
+  }
+  ?>  
                             </div>
                             <p style="text-align: center;">Don't have an account? <a href="signup.php">Create an Account</a>.</p>
                         </form>

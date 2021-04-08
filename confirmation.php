@@ -35,7 +35,9 @@
     <div>
     <div>
   </div>
+  <a href="event_dashboard.php">
   <button type="button" class="btn btn-primary m-3" id="btn-submit">Confirm</button>
+  </a>
   <div>
   
 </body>

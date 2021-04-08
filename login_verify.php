@@ -26,6 +26,7 @@
 
 ?>
   <?php
+  global $number_attempt;
   if ($_SERVER['REQUEST_METHOD'] == "POST")
   {
     require('gameconnect-connectdb.php');
@@ -34,6 +35,8 @@
 
     if (validate($email, $password) == false)
     {
+    $number_attempt = intval($_POST['attempt']) + 1; 
+    header("Location: " .$_SERVER['PHP_SELF'] . "?attempt=$number_attempt&msg=Username and password do not match our record");
     echo "<script type='text/javascript'>
     alert('Error: That is not a valid username and password ')
     </script>";

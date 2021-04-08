@@ -75,7 +75,11 @@ if (!isset($_SESSION['session_user_id'])) {
                                 <input type="time" class="form-control" id="endtime" name="endtime"placeholder="Another input placeholder">
                               </div>
                           </div>
-                          <input type="submit" value="Submit" class="btn btn-light"  />      
+                          <div class ="float-right mt-5"> 
+                            <div class = "row">
+                          <input type="submit" value="Submit" class="btn btn-primary btn-lg btn-block"  onclick="checkForm()"/>   
+                          </div>
+                          </div>   
                           <form>
                           <?php
 if (isset($_POST['eventname']))
@@ -91,9 +95,7 @@ if (isset($_POST['eventname']))
                           <div class ="float-right mt-5"> 
                             <div class = "row">
                            <!--- <a href = "event_dashboard.html"> Cancel </a> --->
-                            <a href = "game_select.php">
-                            <button type="button" class="btn btn-primary btn-lg btn-block" id="btn-submit" onclick="checkForm()" >Create Event</button>
-                            </a>
+                           
                           </div>
                         </div>
                     </div>

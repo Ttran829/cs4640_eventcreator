@@ -37,7 +37,6 @@ if (!isset($_SESSION['session_user_id'])) {
       <a class="navbar-brand" href="#">Navigation</a>
     </div>
   </nav>
-  <h3 style= "text-align:center;" class = "m-3"> Welcome <?php if (isset($_SESSION['user'])) echo $_SESSION['user'] ?>, let's create an event!</h3>
   <div class="container">
     <div class="justify-content-center">
       <h3 class="mt-3 mb-3" style="text-align:center;">Game Center Dashboard</h3>
@@ -47,7 +46,7 @@ if (!isset($_SESSION['session_user_id'])) {
         <div class="col-8">
           <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action active">
-              Calendar
+              Upcoming Games
             </a>
 
           </div>
@@ -55,7 +54,7 @@ if (!isset($_SESSION['session_user_id'])) {
         <div class="col">
           <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action active">
-              Upcoming Games
+              Invitations
             </a>
             <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
             <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>

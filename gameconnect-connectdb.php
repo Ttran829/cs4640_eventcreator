@@ -1,7 +1,7 @@
 <?php
 
 // hostname
-$hostname = 'localhost:3307';
+$hostname = 'localhost:3306';
 
 // database name
 $dbname = 'gameconnect';
