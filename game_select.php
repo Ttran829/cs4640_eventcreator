@@ -34,7 +34,7 @@ if (!isset($_SESSION['session_user_id'])) {
 
   <div class="container">
     <div>
-      <h3 style="text-align:center;" class="m-4"> Select a Game!</h3>
+      <h3 style="text-align:center;" class="m-4"> Select a game for <?php echo $_SESSION['eventname'] ?> </h3>
     </div>
     <!--- <div>
               <h5 style="text-align:center;" class = "m-3"> Search for a game </h5>
@@ -53,7 +53,7 @@ if (!isset($_SESSION['session_user_id'])) {
         </div>
 --->
 
-Previous question: you answered <font color="green" style="font-style:italic"><?php echo $_SESSION['event-name'] ?></font>
+
 
     <div class="container">
 
@@ -62,9 +62,13 @@ Previous question: you answered <font color="green" style="font-style:italic"><?
 
 
 
-    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">      
-      <input type="text" id= "game" name="lunch" class="form-control" autofocus required /> <br />
+    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">  
+    <div class = "row" >
+     <div class ="col">  
+      <input type="text" id= "game" name="lunch" class="form-control" autofocus required />
+      </div>
       <input type="submit" value="Submit" class="btn btn-light"  />   
+      </div>
     </form>
     <?php
 if (isset($_POST['lunch']))
@@ -87,7 +91,7 @@ if (isset($_POST['lunch']))
               borderFunction();
             </script>
 
-            <button class="btn btn-secondary" id="main-button">Next</button>
+      
           </div>
       </div>
       <div class="row justify-content-md-center">
