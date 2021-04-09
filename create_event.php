@@ -48,7 +48,7 @@ if (!isset($_SESSION['session_user_id'])) {
          <div class = "row justify-content-md-center">
              <div class = "col">
                 <div class ="card center mt-2">
-                  <h3 style= "text-align:center;" class = "m-3"> Welcome <?php if (isset($_SESSION['name'])) echo $_SESSION['name'] ?>, let's create an event!</h3>
+                  <h3 style= "text-align:center;" class = "m-3"> Welcome <?php if (isset($_SESSION['session_name'])) echo $_SESSION['session_name'] ?>, let's create an event!</h3>
                     <div class = "form m-5">
                     <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">   
                           <div id = "name" class="form-group mb-3">

@@ -34,7 +34,7 @@ if (!isset($_SESSION['session_user_id'])) {
   <nav class="navbar sticky-top navbar-light bg-light">
     <div class="container-fluid">
       <img src="CSS/GameLogo.png" style="width: 12em; height:auto;">
-      <a class="navbar-brand" href="#">Navigation</a>
+      <a class="navbar-brand" href="#">Profile</a>
     </div>
   </nav>
   <div class="container">
