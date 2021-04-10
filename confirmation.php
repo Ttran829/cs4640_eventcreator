@@ -12,33 +12,38 @@
 <?php session_start(); ?>
      
   <div class="container mt-3">
-  
-    <div class = "card" >
-    <h3 align = "center" class = "card-header">Event Confirmation</h3>
     
-       
-    <div class= "m-3" align = "center" >
-    <div >
-    Event Name <font color="green" style="font-style:italic"><?php echo $_SESSION['eventname'] ?></font>
-    <br/>
-    
-    Event Date <font color="green" style="font-style:italic"><?php echo $_SESSION['gamedate'] ?></font>
-    
-    <br/>
-    Event Start Time <font color="green" style="font-style:italic"><?php echo $_SESSION['starttime'] ?></font>
-    <br/>
-    Event End Time <font color="green" style="font-style:italic"><?php echo $_SESSION['endtime'] ?></font>
-    <br/>
-    Game Chosen <font color="green" style="font-style:italic"><?php echo $_SESSION['lunch'] ?></font>
-
-    <br/>
-    <div>
-    <div>
+    <div class = "card center" >
+      <h3 align = "center" class = "card-header">Event Confirmation</h3>
+      <form action="event_add.php" method="POST">
+        <div class="form-group">
+          <label>Event Name</label>
+          <input type="eventname" class="form-control" name ="eventname" id="eventname" value="<?php echo $_SESSION['eventname'];?>">
+        </div>
+        <div class="form-group">
+          <label>Event Number of Players</label>
+          <input type="playernumber" class="form-control" name ="playernumber" id="playernumber" value="<?php echo $_SESSION['playernumber'];?>">
+        </div>
+        <div class="form-group">
+          <label>Event Date</label>
+          <input type="date" class="form-control" name ="gamedate" id="gamedate" value="<?php echo $_SESSION['gamedate'];?>">
+        </div>
+        <div class="form-group">
+          <label>Event Start Time</label>
+          <input type="time" class="form-control" name ="starttime" id="starttime" value="<?php echo $_SESSION['starttime'];?>">
+        </div>
+        <div class="form-group">
+          <label>Event End Time</label>
+          <input type="time" class="form-control" name ="endtime" id="endtime" value="<?php echo $_SESSION['endtime'];?>">
+        </div>
+        <div class="form-group">
+          <label>Event Game Chosen</label>
+          <input type="game" class="form-control" name ="game" id="game" value="<?php echo $_SESSION['lunch'];?>">
+        </div>
+        <input type="submit" value="Submit" class="btn btn-primary btn-lg btn-block"/>
+      </form>
+    </div>
   </div>
-  <a href="event_dashboard.php">
-  <button type="button" class="btn btn-primary m-3" id="btn-submit">Confirm</button>
-  </a>
-  <div>
   
 </body>
 </html>

@@ -34,7 +34,7 @@ if (!isset($_SESSION['session_user_id'])) {
   <nav class="navbar sticky-top navbar-light bg-light">
     <div class="container-fluid">
       <img src="CSS/GameLogo.png" style="width: 12em; height:auto;">
-      <a class="navbar-brand" href="#">Navigation</a>
+      <a class="navbar-brand" href="#">Profile</a>
     </div>
   </nav>
   <div class="container">
@@ -48,7 +48,34 @@ if (!isset($_SESSION['session_user_id'])) {
             <a href="#" class="list-group-item list-group-item-action active">
               Upcoming Games
             </a>
-
+            <table id="upcomingGames" class="table">
+              <thead>
+                <tr>
+                  <th> Event Name </th>
+                  <th> Number of Players </th>
+                  <th> Date </th>
+                  <th> Start Time </th>
+                  <th> End Time </th>
+                  <th> Game </th>
+                </tr>
+              </thead>
+              <?php
+                require('gameconnect-connectdb.php');
+                $session = $_SESSION['session_user_id'];
+                $query = "SELECT eventname, playernumber, gamedate, starttime, endtime, game FROM event WHERE user_id = $session";
+                $statement = $db->prepare($query);
+                $statement->execute();
+                if ($statement->rowCount() > 0) {
+                  // output data of each row
+                  while($row = $statement->fetch()) {
+                  echo "<tr><td>" . $row["eventname"]. "</td><td>" . $row["playernumber"] . "</td><td>"
+                  . $row["gamedate"] . "</td><td>" . $row["starttime"] . "</td><td>" . $row["endtime"] . "</td><td>" . $row["game"] . "</td></tr>";
+                  }
+                  echo "</table>";
+                  } else { echo "No Upcoming Events!"; }
+                  $statement->closeCursor(); 
+              ?>
+            </table>
           </div>
         </div>
         <div class="col">
