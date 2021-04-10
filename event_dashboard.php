@@ -65,12 +65,15 @@ if (!isset($_SESSION['session_user_id'])) {
                 $query = "SELECT eventname, playernumber, gamedate, starttime, endtime, game FROM event WHERE user_id = $session";
                 $statement = $db->prepare($query);
                 $statement->execute();
+                $eventList = [];
                 if ($statement->rowCount() > 0) {
                   // output data of each row
                   while($row = $statement->fetch()) {
                   echo "<tr><td>" . $row["eventname"]. "</td><td>" . $row["playernumber"] . "</td><td>"
                   . $row["gamedate"] . "</td><td>" . $row["starttime"] . "</td><td>" . $row["endtime"] . "</td><td>" . $row["game"] . "</td></tr>";
+                  array_push($eventList,$row["eventname"] );
                   }
+                  
                   echo "</table>";
                   } else { echo "No Upcoming Events!"; }
                   $statement->closeCursor(); 
@@ -79,14 +82,18 @@ if (!isset($_SESSION['session_user_id'])) {
           </div>
         </div>
         <div class="col">
-          <div class="list-group">
+          <div class="card">
             <a href="#" class="list-group-item list-group-item-action active">
-              Invitations
+              Notifications
             </a>
-            <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-            <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-            <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-            <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+            <?php
+            $numEvents = (count($eventList) == 1) ? "You have " . sizeof($eventList) . " upcoming game!" : "You have " . sizeof($eventList) . " upcoming games!";
+            ?>
+            <div> 
+            <p class = "m-2" align = "center"> <?php echo $numEvents?> </p>
+            </div>
+            
+            
           </div>
           <a href="create_event.php">
             <div class="float-right mt-5">
