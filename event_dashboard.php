@@ -24,6 +24,7 @@ if (!isset($_SESSION['session_user_id'])) {
   <!-- 3. link bootstrap -->
 
   <!-- if you choose to use CDN for CSS bootstrap -->
+  <link rel="stylesheet" href="CSS/styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
@@ -44,9 +45,10 @@ if (!isset($_SESSION['session_user_id'])) {
     <div>
       <div class="row">
         <div class="col-8">
+        <div class ="card">
           <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action active">
-              Upcoming Games
+            <a href="#" class="list-group-item list-group-item-action active" style="background-color:#f35d02; border-color:#f35d02">
+              Game List
             </a>
             <table id="upcomingGames" class="table">
               <thead>
@@ -66,12 +68,14 @@ if (!isset($_SESSION['session_user_id'])) {
                 $statement = $db->prepare($query);
                 $statement->execute();
                 $eventList = [];
+                $eventDate =[];
                 if ($statement->rowCount() > 0) {
                   // output data of each row
                   while($row = $statement->fetch()) {
                   echo "<tr><td>" . $row["eventname"]. "</td><td>" . $row["playernumber"] . "</td><td>"
                   . $row["gamedate"] . "</td><td>" . $row["starttime"] . "</td><td>" . $row["endtime"] . "</td><td>" . $row["game"] . "</td></tr>";
                   array_push($eventList,$row["eventname"] );
+                  array_push($eventDate,$row["gamedate"] );
                   }
                   
                   echo "</table>";
@@ -81,27 +85,63 @@ if (!isset($_SESSION['session_user_id'])) {
             </table>
           </div>
         </div>
+        </div>
         <div class="col">
           <div class="card">
-            <a href="#" class="list-group-item list-group-item-action active">
+            <a href="#" class="list-group-item list-group-item-action active" style="background-color:#f35d02; border-color:#f35d02">
               Notifications
             </a>
-            <?php
-            $numEvents = (count($eventList) == 1) ? "You have " . sizeof($eventList) . " upcoming game!" : "You have " . sizeof($eventList) . " upcoming games!";
-            ?>
-            <div> 
-            <p class = "m-2" align = "center"> <?php echo $numEvents?> </p>
+            <div>
+            <p class = "m-2" align = "center">
+            <div class="alert alert-primary" role="alert">
+
+             <?php 
+            upcoming($eventDate);
+            //echo print_r($eventDate);
+            ?> </p>
+            </div>
             </div>
             
             
           </div>
           <a href="create_event.php">
             <div class="float-right mt-5">
-              <button type="button" class="btn btn-primary m-1 " id="btn-submit">Create New Event</button>
+              <button type="button" class="btn btn-primary btn-lg btn-block m-1 " id="btn-submit">Create New Event</button>
             </div>
           </a>
         </div>
       </div>
     </div>
   </div>
+
+  <?php 
+  
+  function upcoming($dates){
+    $upcomingDates = [];
+    $gamesToday = [];
+    $return = [];
+    $today = date("Y-m-d");
+    foreach ($dates as &$value) {
+      if ($value == $today){
+        array_push($gamesToday,$value);
+      }
+      else if ($value > $today){
+        array_push($upcomingDates,$value);
+      }
+  }
+  
+  $gameday = (count($gamesToday) == 1) ? "You have " . sizeof($gamesToday) . " game today!" : "You have " . sizeof($gamesToday) . " games today!";
+
+  echo $gameday . "<br/>";
+ 
+  //echo "You have " . count($gamesToday) ." game(s) today" . "<br/>";
+  $numEvents = (count($upcomingDates) == 1) ? "You have " . sizeof($upcomingDates) . " upcoming game!" : "You have " . sizeof($upcomingDates) . " upcoming games!";
+  echo $numEvents;
+
+  //echo "You have " . count($upcomingDates) ." upcoming game(s) today";
+
+  }
+  
+  ?>
+
 </body>

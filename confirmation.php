@@ -15,7 +15,7 @@
     
     <div class = "card center" >
       <h3 align = "center" class = "card-header">Event Confirmation</h3>
-      <form action="event_add.php" method="POST">
+      <form action="event_add.php" method="POST" class = "m-4">
         <div class="form-group">
           <label>Event Name</label>
           <input type="eventname" class="form-control" name ="eventname" id="eventname" value="<?php echo $_SESSION['eventname'];?>">
