@@ -155,13 +155,13 @@ if (!isset($_SESSION['session_user_id'])) {
         
 
         <div class="col">
-          <div class="card">
+        
             <a href="#" class="list-group-item list-group-item-action active" style="background-color:#f35d02; border-color:#f35d02">
               Notifications
             </a>
             <div> 
             <p class = "m-2" align = "center">
-            <div class="alert alert-primary" role="alert">
+            <div class="alert alert-info" align = "center" role="alert">
 
              <?php 
             upcoming($eventDate);
@@ -169,13 +169,12 @@ if (!isset($_SESSION['session_user_id'])) {
             ?>
             </p>
             </div>
-            </div>
             
             
           </div>
           <a href="create_event.php">
             <div class="float-right mt-5">
-              <button type="button" class="btn btn-primary btn-lg btn-block m-1 " id="btn-submit">Create New Event</button>
+              <button type="button" class="btn btn-primary btn-lg btn-block m-1 " style="background-color:#f35d02; border-color:#f35d02" id="btn-submit">Create New Event</button>
             </div>
           </a>
         </div>
