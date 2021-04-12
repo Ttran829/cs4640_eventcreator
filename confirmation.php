@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
   <link rel="stylesheet" href="CSS/styles.css">
-  <title>Event Confirmation</title>    
+  <title>Event Confirmation</title>   
+  <!-- Author: Kimberly Vo, Tien Tran --> 
 </head>
 <body>
 <?php session_start(); ?>
@@ -38,7 +39,7 @@
         </div>
         <div class="form-group">
           <label>Event Game Chosen</label>
-          <input type="game" class="form-control" name ="game" id="game" value="<?php echo $_SESSION['lunch'];?>">
+          <input type="game" class="form-control" name ="game" id="game" value="<?php echo $_SESSION['game'];?>">
         </div>
         <input type="submit" value="Submit" class="btn btn-primary btn-lg btn-block"/>
       </form>
