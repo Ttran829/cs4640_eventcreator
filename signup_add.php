@@ -1,6 +1,7 @@
 <?php 
   session_start(); 
   include('signup.php');
+  //Author: Tien Tran (tdt4ht) and Kimberly Vo (kv3nw)
 ?>
 
 <?php

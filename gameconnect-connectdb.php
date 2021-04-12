@@ -1,5 +1,5 @@
 <?php
-
+//Author: Tien Tran (tdt4ht) and Kimberly Vo (kv3nw)
 // hostname
 $hostname = 'localhost:3306';
 

@@ -1,4 +1,6 @@
+
 <?php
+//Author: Tien Tran (tdt4ht) and Kimberly Vo (kv3nw)
     session_start();
     include('login.php');
 ?>

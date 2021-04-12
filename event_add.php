@@ -3,6 +3,7 @@
     echo "<script>location.href = 'login.php';</script>";
     }
   include('confirmation.php');
+  //Author: Tien Tran (tdt4ht) and Kimberly Vo (kv3nw)
 ?>
 
 <?php
