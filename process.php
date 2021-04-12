@@ -5,6 +5,8 @@
 <?php
     require('gameconnect-connectdb.php');
 
+    // checking to see if delete as been set from event dashboard
+    // if so, the event will be deleted from the database
     if(isset($_GET['delete'])){
         $id = $_GET['delete'];
         $query = "DELETE FROM event WHERE event_id = $id";
@@ -15,6 +17,8 @@
         echo("<script>location.href = 'event_dashboard.php';</script>");
     }
 
+    // checks to see if the user has pressed the update button from the modal 
+    // if so, the event will have the appropriate fields updated 
     if ($_SERVER['REQUEST_METHOD'] == "POST"){
         require('gameconnect-connectdb.php');
         $eventname = $_POST['eventname'];

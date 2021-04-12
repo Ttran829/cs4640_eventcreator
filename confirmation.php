@@ -10,7 +10,7 @@
 </head>
 <body>
 <?php session_start(); ?>
-     
+  <!-- form that takes all the event information and prepopulates the confirmation form -->
   <div class="container mt-3">
     
     <div class = "card center" >

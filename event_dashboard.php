@@ -65,6 +65,10 @@ if (!isset($_SESSION['session_user_id'])) {
                 </tr>
               </thead>
               <?php
+                // this portion of the code returns all the events that the user has created and displays them in a table
+                // user also has the option to udpdate their event and delete the event
+                // updating the event opens a modal with prepopulated data relating to the event
+                // deleting the event rewrites the url so that it can be deleted in the process.php file
                 require('gameconnect-connectdb.php');
                 $session = $_SESSION['session_user_id'];
                 $query = "SELECT event_id, eventname, playernumber, gamedate, starttime, endtime, game FROM event WHERE user_id = $session";
