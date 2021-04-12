@@ -6,6 +6,8 @@
 ?>
 
 <?php
+// checks to see if the submit button on the confirmation page was pressed
+// if so, a new event will be created and be mapped to the appropriate user
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
   require('gameconnect-connectdb.php');
   $eventname = $_POST['eventname'];
