@@ -52,46 +52,48 @@ if (!isset($_SESSION['session_user_id'])) {
                     <div class = "form m-5">
                     <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">   
                           <div id = "name" class="form-group mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Event Name</label>
-                            <input type="eventname" class="form-control" name ="eventname" id="eventname" placeholder="input event name" onkeyup="verifyEventName()" required>
-                            <p id="name_msg" class="feedback"></p>
-                          </div>
-                          <div id = "number" class=" form-group mb-3">
-                            <label for="formGroupExampleInput2" class="form-label"> Number of Players</label>
-                            <input type="playernumber" name = "playernumber" class="form-control" id="playernumber" placeholder="input number of players" onkeyup="verifyPlayerNumber()" required>
-                            <p id="number_msg" class="feedback"></p>
-                          </div>
-                          <div class="mb-3">
-                            <label for="formGroupExampleInput2" class="form-label"> Game Date</label>
-                            <input type="date" class="form-control" id="gamedate" name = "gamedate" placeholder="Another input placeholder">
-                          </div>
-                          <div class = "row">
-                              <div class = "col">
-                                <label for="formGroupExampleInput2" class="form-label"> Start Time</label>
-                                <input type="time" class="form-control" id="starttime" name="starttime"placeholder="Another input placeholder">
-                              </div>
-                              <div class = "col">
-                                <label for="formGroupExampleInput2" class="form-label"> End Time </label>
-                                <input type="time" class="form-control" id="endtime" name="endtime"placeholder="Another input placeholder">
-                              </div>
-                          </div>
-                          <div class ="float-right mt-5"> 
+                              <label for="formGroupExampleInput" class="form-label">Event Name</label>
+                              <input type="eventname" class="form-control" name ="eventname" id="eventname" placeholder="input event name" onkeyup="verifyEventName()" required>
+                              <p id="name_msg" class="feedback"></p>
+                            </div>
+                            <div id = "number" class=" form-group mb-3">
+                              <label for="formGroupExampleInput2" class="form-label"> Number of Players</label>
+                              <input type="playernumber" name = "playernumber" class="form-control" id="playernumber" placeholder="input number of players" onkeyup="verifyPlayerNumber()" required>
+                              <p id="number_msg" class="feedback"></p>
+                            </div>
+                            <div class="mb-3">
+                              <label for="formGroupExampleInput2" class="form-label"> Game Date</label>
+                              <input type="date" class="form-control" id="gamedate" name = "gamedate" placeholder="Another input placeholder">
+                            </div>
                             <div class = "row">
-                          <input type="submit" value="Submit" class="btn btn-primary btn-lg btn-block"  onclick="checkForm()"/>   
-                          </div>
+                                <div class = "col">
+                                  <label for="formGroupExampleInput2" class="form-label"> Start Time</label>
+                                  <input type="time" class="form-control" id="starttime" name="starttime"placeholder="Another input placeholder">
+                                </div>
+                                <div class = "col">
+                                  <label for="formGroupExampleInput2" class="form-label"> End Time </label>
+                                  <input type="time" class="form-control" id="endtime" name="endtime"placeholder="Another input placeholder">
+                                </div>
+                            </div>
+                            <div class ="float-right mt-5"> 
+                              <div class = "row">
+                            <input type="submit" value="Submit" class="btn btn-primary btn-lg btn-block"  onclick="checkForm()"/>   
+                            </div>
                           </div>   
-                          <form>
+                    <form>
                           <?php
-if (isset($_POST['eventname']))
-{
-  $_SESSION['eventname'] = $_POST['eventname'];
-  $_SESSION['playernumber'] = $_POST['playernumber'];
-  $_SESSION['gamedate'] = $_POST['gamedate'];
-  $_SESSION['starttime'] = $_POST['starttime'];
-  $_SESSION['endtime'] = $_POST['endtime'];
-  header('Location: game_select.php');
-}
-?>
+
+                          // Use post method to send information about game to confirmation page and database
+                          if (isset($_POST['eventname']))
+                          {
+                            $_SESSION['eventname'] = $_POST['eventname'];
+                            $_SESSION['playernumber'] = $_POST['playernumber'];
+                            $_SESSION['gamedate'] = $_POST['gamedate'];
+                            $_SESSION['starttime'] = $_POST['starttime'];
+                            $_SESSION['endtime'] = $_POST['endtime'];
+                            header('Location: game_select.php');
+                          }
+                          ?>
 
                           <div class ="float-right mt-5"> 
                             <div class = "row">

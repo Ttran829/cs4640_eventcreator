@@ -168,6 +168,7 @@ if (!isset($_SESSION['session_user_id'])) {
             <div class="alert alert-info" align = "center" role="alert">
 
              <?php 
+            // call function to get upcoming games and games for today
             upcoming($eventDate);
             //echo print_r($eventDate);
             ?>
@@ -187,6 +188,8 @@ if (!isset($_SESSION['session_user_id'])) {
   </div>
   <?php 
   
+  // User defined function that checks the date and compares to an array of dates in game list
+  // User defined funtion, arrays, predefined functions, expression
   function upcoming($dates){
     $upcomingDates = [];
     $gamesToday = [];
@@ -201,19 +204,21 @@ if (!isset($_SESSION['session_user_id'])) {
       }
   }
   
-  $gameday = (count($gamesToday) == 1) ? "You have " . sizeof($gamesToday) . " game today!" : "You have " . sizeof($gamesToday) . " games today!";
+        $gameday = (count($gamesToday) == 1) ? "You have " . sizeof($gamesToday) . " game today!" : "You have " . sizeof($gamesToday) . " games today!";
 
-  echo $gameday . "<br/>";
- 
-  //echo "You have " . count($gamesToday) ." game(s) today" . "<br/>";
-  $numEvents = (count($upcomingDates) == 1) ? "You have " . sizeof($upcomingDates) . " upcoming game!" : "You have " . sizeof($upcomingDates) . " upcoming games!";
-  echo $numEvents;
+        echo $gameday . "<br/>";
+      
+        //echo "You have " . count($gamesToday) ." game(s) today" . "<br/>";
+        $numEvents = (count($upcomingDates) == 1) ? "You have " . sizeof($upcomingDates) . " upcoming game!" : "You have " . sizeof($upcomingDates) . " upcoming games!";
+        echo $numEvents;
 
-  //echo "You have " . count($upcomingDates) ." upcoming game(s) today";
+        //echo "You have " . count($upcomingDates) ." upcoming game(s) today";
 
   }
-  
+
   ?>
+
+
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>

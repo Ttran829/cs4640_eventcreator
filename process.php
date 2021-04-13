@@ -1,5 +1,6 @@
 <?php 
   include('event_dashboard.php');
+  //Author: Tien Tran (tdt4ht) and Kimberly Vo (kv3nw)
 ?>
 
 <?php

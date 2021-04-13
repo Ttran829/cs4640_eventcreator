@@ -65,18 +65,18 @@ if (!isset($_SESSION['session_user_id'])) {
     <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">  
     <div class = "row" >
      <div class ="col">  
-      <input type="text" id= "game" name="lunch" class="form-control" autofocus required />
+      <input type="text" id= "game" name="game" class="form-control" autofocus required />
       </div>
-      <input type="submit" value="Submit" class="btn btn-light"  />   
+      <input type="submit" value="Submit" class="btn btn-light" style="background-color:#f35d02; border-color:#f35d02; color:#ffffff" />   
       </div>
     </form>
     <?php
-if (isset($_POST['lunch']))
-{
-  $_SESSION['lunch'] = $_POST['lunch'];
-  header('Location: confirmation.php');
-}
-?>
+      if (isset($_POST['game']))
+      {
+        $_SESSION['game'] = $_POST['game'];
+        header('Location: confirmation.php');
+      }
+    ?>
 
 
 
