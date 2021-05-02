@@ -177,11 +177,18 @@ if (!isset($_SESSION['session_user_id'])) {
             
             
           </div>
+          <div class = "mt-5">
           <a href="create_event.php">
-            <div class="float-right mt-5">
-              <button type="button" class="btn btn-primary btn-lg btn-block m-1 " style="background-color:#f35d02; border-color:#f35d02" id="btn-submit">Create New Event</button>
+            <div class="float-right">
+              <button type="button" class="btn btn-primary btn-md m-1 " style="background-color:#f35d02; border-color:#f35d02" id="btn-submit">Create New Event</button>
             </div>
           </a>
+          <a href="http://localhost:4200/">
+            <div class="float-right">
+              <button type="button" class="btn btn-outline-secondary btn-md m-1"  id="btn-submit">Suggest New Game</button>
+            </div>
+          </a>
+          </div>
         </div>
       </div>
     </div>
